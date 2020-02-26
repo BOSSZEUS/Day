@@ -1,49 +1,19 @@
 const router = require('express').Router()
-const db = require('../config/db.js')
+const { getUsers, getUser, createUser, updateUser, deleteUser } = require('../controllers/userController.js')
 
 // GET all users
-router.get('/users', (req, res) => {
-  db.query('SELECT * FROM users', (err, users) => {
-    if (err) { console.log(err) }
-    res.json(users)
-  })
-})
+router.get('/users', (req, res) => getUsers(users => res.json(users)))
 
 // GET one user
-router.get('/users/:username', (req, res) => {
-  db.query(`
-    SELECT users.userid, users.username, items.item, items.isDone, items.itemid FROM users
-    LEFT JOIN items
-    ON users.userid = items.userid
-    WHERE ?
-  `, { username: req.params.username }, (err, data) => {
-    if (err) { console.log(err) }
-    res.json(data)
-  })
-})
+router.get('/users/:username', (req, res) => getUser(req.params.username, user => res.json(user)))
 
 // POST an user
-router.post('/users', (req, res) => {
-  db.query('INSERT INTO users SET ?', req.body, err => {
-    if (err) { console.log(err) }
-    res.sendStatus(200)
-  })
-})
+router.post('/users', (req, res) => createUser(req.body, () => res.sendStatus(200)))
 
 // PUT an user
-router.put('/users/:id', (req, res) => {
-  db.query('UPDATE users SET ? WHERE ?', [req.body, { userid: req.params.id }], err => {
-    if (err) { console.log(err) }
-    res.sendStatus(200)
-  })
-})
+router.put('/users/:id', (req, res) => updateUser(req.body, req.params.id, () => res.sendStatus(200)))
 
 // DELETE an user
-router.delete('/users/:id', (req, res) => {
-  db.query('DELETE FROM users WHERE ?', { userid: req.params.id }, err => {
-    if (err) { console.log(err) }
-    res.sendStatus(200)
-  })
-})
+router.delete('/users/:id', (req, res) => deleteUser(req.params.id, () => res.sendStatus(200)))
 
 module.exports = router

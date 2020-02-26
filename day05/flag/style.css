@@ -1,0 +1,41 @@
+.container {
+height: 500px;
+width: 800px;
+background-color: yellow;
+display: flexbox;
+}
+
+.red1{
+width: 600px;
+height: 100px;
+background-color: red;
+flex-direction: column;
+
+
+}
+
+.red{
+width: 800px;
+height: 100px;
+background-color: red;
+
+}
+.white1{
+  background-color: white;
+width: 800px;
+height: 100px;
+
+}
+
+
+.white{
+background-color: white;
+width: 800px;
+height: 100px;
+}
+
+.blue{
+  background-color: blue;
+  height: 200px;
+  width: 200px;
+}

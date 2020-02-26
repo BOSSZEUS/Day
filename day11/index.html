@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .mybox{
+      
+      height: 150px;
+      width: 200px;
+      background-color: aqua;
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- <section>
+    <div class="mybox">
+      <form id="myform" action="myform"></form>
+      <input id="name" type="your name">
+      <button id="mybtn">submit</button>
+    </div>
+  </section>
+  <h1 id="message"></h1>
+  <button id="mybtn1" value="5">click me</button> -->
+
+  <!-- <div id="buttons"></div> -->
+
+  <h1 id="count"></h1>
+  <button id="mybtn">click me</button>
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+  </script>
+  <script>
+    // let arr =[1,2,3,4,5,6,7,8,9,10]
+    // let even = arr.filter((x)=>{
+    //   return x % 2 === 0
+    // })
+    // console.log(arr)
+    // console.log(even)
+
+
+
+  // let users = ['John Doe', 'Jane Doe', 'Jack Doe', 'Jan Doe']
+  // ​
+  // let userObjs = users.map((user, i) => {
+  // return {
+  // id: i,
+  // name: user
+  // }
+  // })
+  // ​
+  // console.log(users)
+  // console.log(userObjs)
+    
+    // for (let i = 1; i <= 10000; i++ ){
+    //   if (!(i%15)){
+    //     console.log('fizzbuzz')
+    //   } else if (!(i%3)){
+    //     console.log('fizz')}             //fizzBuzz
+    //     else if (!(i%5)){
+    //       console.log ('buzz')
+    //     }
+    //     else (console.log(i))}
+
+      // let arr = [1, 2, 3, 4, 5,6,7,8,9,10]
+
+      // arr.forEach((elem,i, theArr) =>{
+        
+      //   console.log(elem,i, theArr)
+      // })
+      
+      // let arr = [1, 2, 3, 4, 5,6,7,8,9,10]
+      //   arr.forEach(x => {
+      //     console.log(!(x % 2)) ? true : false
+          
+      // //   })
+      //     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      //     ​
+      //     arr.forEach(x => {
+      //     if (x % 2 === 0) {
+      //     console.log(true)
+      //     } else {
+      //     console.log(false)
+      //     }
+      //     })
+      //     ​
+      //     arr.forEach(x => console.log(!(x % 2)))
+
+      // let arry = [1,2,3,4,5]
+      // let [a,b,c,d,e,] =arry
+      // console.log(a,b,c,d,e)    
+
+
+      // let dog ={
+      //   name: 'beef',
+      //   breed:'boxer',
+      //   age:1
+      // } 
+      // let {name, breed, age} = dog
+      // console.log(name,breed,age)
+
+    // let arry = [1,2,3,4,5]
+    // let [a,b, ...rest]=arry //...spreads an arry
+
+    // console.log(a,b)
+    // console.log(rest)
+
+
+
+    // document.getElementById('mybtn1').addEventListener('click',({target:{value}}) =>{
+    //   console.log(value)
+    // })
+
+
+
+    // starting jquery ..................................................................
+    //   document.getElementById('message')     
+    //  $('#message').text('hello world') //same as getelementbyid
+    //  $('#message').html('<button>click me</button>') //same as innerhtml
+
+      // let arr =[1,2,3,4,5]
+
+      // arr.forEach(x =>{
+      //   let numElem = $('<button>')
+      //   numElem.text(x)                         // creating 5 buttons out of one 
+      //   $('buttons').append(numElem)
+
+      // })
+
+        let count = 0
+
+      $('#mybtn').on('click',()=>{
+        count ++
+        $('#count').text(count)
+      })
+
+
+  </script>
+  
+</body>
+</html>

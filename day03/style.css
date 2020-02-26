@@ -1,0 +1,26 @@
+
+#div1 {
+  height: 100px;
+  width: 100px;
+  background-color: teal;
+  position: fixed;
+  bottom: 0px;
+
+}
+
+#div2 {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  float: right;
+  margin-right: 5px;
+  position: relative;
+ }
+
+
+#div3 { 
+  height: 100px;
+  width: 100px;
+  background-color: green;
+ 
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .incomplete {
+      color: black;
+    }
+    ​.complete {
+      color: rgb(11, 247, 11);
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <p>
+      <label for="item">item</label>
+      <input type="text" name="item" id="item">
+    </p>
+    <p>
+      <button id="addItem">Add Item</button>
+    </p>
+  </form>
+  <ul id="items"></ul>
+  <script>
+    let items = JSON.parse(localStorage.getItem('items')) || []
+    const renderItems = _ => {
+      document.getElementById('items').innerHTML = ''
+      for (let i = 0; i < items.length; i++) {
+        let itemElem = document.createElement('li')
+        itemElem.className = items[i].isDone ? 'complete' : 'incomplete'
+        itemElem.innerHTML = `
+        ${items[i].text}
+        <button class="markDone" value="${i}">✓</button>
+        <button class="removeItem" value="${i}">X</button>
+        `
+        document.getElementById('items').append(itemElem)
+      }
+    }
+    const markDone = index => {
+      items[index].isDone = !items[index].isDone
+      localStorage.setItem('items', JSON.stringify(items))
+      renderItems()
+    }
+    const removeItem = index => {
+      items.splice(index, 1)
+      localStorage.setItem('items', JSON.stringify(items))
+      renderItems()
+    }
+    document.getElementById('addItem').addEventListener('click', event => {
+      event.preventDefault()
+      items.push({
+        text: document.getElementById('item').value,
+        isDone: false
+      })
+      localStorage.setItem('items', JSON.stringify(items))
+      renderItems()
+      document.getElementById('item').value = ''
+    })
+    document.addEventListener('click', event => {
+      if (event.target.className === 'markDone') {
+        markDone(event.target.value)
+      } else if (event.target.className === 'removeItem') {
+        removeItem(event.target.value)
+      }
+    })
+    renderItems()
+  </script>
+</body>
+</html>

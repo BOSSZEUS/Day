@@ -1,0 +1,24 @@
+front-end / client side all done before first project
+html/css/js/react
+moving to back-end / server side.
+back end : node / express
+third part is database
+database : my sql / mongo 
+
+node- js for backend, no DOM in node
+-
+
+
+get post put delete
+crud- creat read update delete 
+
+
+
+module.exports - allows you to export informtion from a file
+require() - allows you to import information from one file into another
+
+
+
+npm--------------------------------------------------
+ npm init -y makes json file
+ npm i (name) -- imports packages into json
